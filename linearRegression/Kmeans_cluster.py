@@ -3,7 +3,7 @@
 """
 Created on Wed Jan 16 08:30:10 2019
 
-@author: Azamali
+@author:
 """
 
 #importing 
