@@ -3,7 +3,7 @@
 """
 Created on Wed Jan 23 08:47:55 2019
 
-@author: 
+@author: Shaikh Azamali
 """
 
 #importing the library
@@ -12,11 +12,10 @@ import matplotlib as plt
 import pandas as pd
 
 # importimg  the data set
-dataset = pd.read_csv('Market_Basket_Optimisation.csv',header=None)
+dataset = pd.read_csv('/home/aiktc/Downloads/500_Person_Gender_Height_Weight_Index_for_our_project.csv')
 transactions = []
-for i in range(0,7501):
+for i in range(7502):
     transactions.append([str(dataset.values[i,j]) for j in range(0,20)])
-    
 #Training apyori on the dataset
 from apyori import apriori
 rules = apriori(transactions, min_support = 0.003,min_confidence = 0.2, min_lift = 3, min_length = 2)
@@ -26,10 +25,10 @@ rules = apriori(transactions, min_support = 0.003,min_confidence = 0.2, min_lift
 results = list(rules)
 results_list = []
 for i in range(1,len(results)):
-    results_list.append('RULE:\t' + str (results[i][0]).replace('frozenset','') +
-    'n\SUPPORT:\t'+ str (results[i][1]) + 
-    'n\CONF:\t' + str (results[i][2][0][2]) + 
-    'n\LIFT:\t' + str (results[i][0]))
+    results_list.append('RULE:\n' + str (results[i][0]).replace('frozenset','') +
+    'n\SUPPORT:\n'+ str (results[i][1]) + 
+    'n\CONF:\n' + str (results[i][2][0][2]) + 
+    'n\LIFT:\n' + str (results[i][0]))
 
     
 
